@@ -1,0 +1,61 @@
+<!-- Navbar -->
+<header id="navbar" class="bg-white bg-opacity-20 backdrop-blur-[44px] fixed top-0 left-0 w-full h-[92px] flex items-center px-0 border-b border-black z-50">
+    <div class="flex w-full items-center">
+        <!-- Contenedor del Logo con márgenes en mobile y centrado en desktop -->
+        <a href="index.html" class="h-full flex items-center pl-[24px] pr-[48px] md:pl-0 md:pr-0 md:w-[300px] md:justify-center border-r border-black">
+            <img src="assets/Logo.png" alt="Logo" class="h-[60px] md:h-[80px]">
+        </a>
+
+        <!-- Menú de Navegación (Escritorio) -->
+        <nav class="hidden md:flex gap-[2px] ml-auto">
+            <a href="index.html" class="bg-black text-white h-[92px] flex items-center justify-center w-[150px]">Portafolio</a>
+            <a href="servicios.html" class="bg-black text-white h-[92px] flex items-center justify-center w-[200px]">Servicios Freelance</a>
+        </nav>
+
+        <!-- **Botón de Menú Móvil con 24px de margen derecho** -->
+        <button id="mobile-menu-btn" class="block md:hidden text-black pr-[24px] ml-auto">
+            <i class="ri-menu-line text-3xl"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Menú Móvil (Oculto por defecto) -->
+<nav id="mobile-menu" class="fixed top-0 left-0 w-full h-screen bg-white bg-opacity-90 backdrop-blur-[44px] flex flex-col items-center justify-center space-y-6 text-black text-lg hidden">
+    <!-- Botón de Cierre -->
+    <button id="close-menu" class="absolute top-6 right-6 text-black text-3xl">
+        <i class="ri-close-line"></i>
+    </button>
+
+    <a href="index.html" class="block bg-black text-white w-[80%] text-center py-4 text-xl rounded-md">Portafolio</a>
+    <a href="servicios.html" class="block bg-black text-white w-[80%] text-center py-4 text-xl rounded-md">Servicios Freelance</a>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMenuBtn = document.getElementById("close-menu");
+
+        if (!mobileMenuBtn || !mobileMenu || !closeMenuBtn) {
+            console.error("❌ No se encontraron los elementos del menú móvil.");
+            return;
+        }
+
+        // Abrir menú móvil
+        mobileMenuBtn.addEventListener("click", function () {
+            mobileMenu.classList.remove("hidden");
+        });
+
+        // Cerrar menú al hacer clic en el botón "X"
+        closeMenuBtn.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll("#mobile-menu a").forEach(link => {
+            link.addEventListener("click", function () {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+    });
+</script>

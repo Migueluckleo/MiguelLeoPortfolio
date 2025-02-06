@@ -1,0 +1,13 @@
+h1 {
+  font-size: 200px;
+  font-weight: bold;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 80px;
+  font-weight: 300; /* Light */
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1;
+}
